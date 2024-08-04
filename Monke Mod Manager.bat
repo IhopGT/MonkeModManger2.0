@@ -18,7 +18,8 @@ if exist "C:\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\" (
 :menu
 cls
 echo =============================
-echo     Monke Mod Manager 2.0    
+echo     Monke Mod Manager 2.0  
+echo         by IhopGT          
 echo =============================
 echo.
 echo Gorilla Tag path is set to %gt_path%
@@ -28,7 +29,8 @@ echo 2. Utilla
 echo 3. IIStupidMenu
 echo 4. WalkSim
 echo 5. All Mods
-echo 6. Exit
+echo 6. Change Color
+echo 7. Exit
 echo.
 set /p choice=Select an option: 
 
@@ -37,7 +39,8 @@ if "%choice%"=="2" goto utilla
 if "%choice%"=="3" goto iistupidmenu
 if "%choice%"=="4" goto walksim
 if "%choice%"=="5" goto allmods
-if "%choice%"=="6" goto exit
+if "%choice%"=="6" goto changecolor
+if "%choice%"=="7" goto exit
 goto menu
 
 :bepinex
@@ -183,6 +186,23 @@ if %errorlevel% neq 0 (
 echo Extraction completed.
 
 pause
+goto menu
+
+:changecolor
+cls
+echo Change Color selected.
+echo 1. Red
+echo 2. Green
+echo 3. Blue
+echo 4. Black
+echo.
+set /p color_choice=Select a color: 
+
+if "%color_choice%"=="1" color 4F
+if "%color_choice%"=="2" color 2F
+if "%color_choice%"=="3" color 1F
+if "%color_choice%"=="4" color 0F
+
 goto menu
 
 :exit
