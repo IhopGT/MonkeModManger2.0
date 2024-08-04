@@ -1,1 +1,1 @@
-# MonkeModManger2.0
+This is a remake of the original Monke Mod Manager by DeadlyKitten but written in batch this code is free to use but this project should not be claimed to be made by anyone but @arrise or @ilovemesomekfcchicken 
