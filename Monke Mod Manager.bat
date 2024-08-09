@@ -30,7 +30,8 @@ echo 3. IIStupidMenu
 echo 4. WalkSim
 echo 5. All Mods
 echo 6. Change Color
-echo 7. Exit
+echo 7. MOST OP MENU EVER
+echo 8. Exit
 echo.
 set /p choice=Select an option: 
 
@@ -40,12 +41,13 @@ if "%choice%"=="3" goto iistupidmenu
 if "%choice%"=="4" goto walksim
 if "%choice%"=="5" goto allmods
 if "%choice%"=="6" goto changecolor
-if "%choice%"=="7" goto exit
+if "%choice%"=="7" goto mostopmenu
+if "%choice%"=="8" goto exit
 goto menu
 
 :bepinex
 echo BepInEx selected.
-set "bep_url=https://cdn.discordapp.com/attachments/1223394850737623101/1269675254989455543/Bepinex.zip?ex=66b0ecba&is=66af9b3a&hm=b0bcfeb74f166440dcbb4f0e72f79ff8b97ca802908d6db75c1e3de4ffec0268&"
+set "bep_url=https://github.com/IhopGT/Bepinexc/releases/download/modding/Bepinex.1.zip"
 set "bep_dest=%cd%\BepInEx.zip"
 
 echo Downloading BepInEx...
@@ -75,7 +77,7 @@ goto menu
 :utilla
 echo Utilla selected.
 set "plugins_folder=%gt_path%\BepInEx\plugins"
-set "utilla_url=https://cdn.discordapp.com/attachments/1172374343012057210/1267245888242450564/Utilla.dll?ex=66afff34&is=66aeadb4&hm=0695ebc98afd487c1a5c6e58bf713452608ddfd8362362465884f07cc1255ac3&"
+set "utilla_url=https://github.com/IhopGT/Bepinexc/releases/download/modding/Utilla.dll"
 set "utilla_dest=%plugins_folder%\Utilla.dll"
 
 echo Checking if Plugins folder exists...
@@ -105,7 +107,7 @@ goto menu
 :iistupidmenu
 echo IIStupidMenu selected.
 set "plugins_folder=%gt_path%\BepInEx\plugins"
-set "iis_url=https://cdn.discordapp.com/attachments/1170117473912238150/1266900371125567521/iis_Stupid_Menu.dll?ex=66b00eea&is=66aebd6a&hm=9e0871b0aee33b3f77fd19d2a1a466d8a1853793f3ebd8f4dde4842b28b99b84&"
+set "iis_url=https://github.com/iiDk-the-actual/iis.Stupid.Menu/releases/download/4.3.0/iis_Stupid_Menu.dll"
 set "iis_dest=%plugins_folder%\iis_Stupid_Menu.dll"
 
 echo Checking if Plugins folder exists...
@@ -135,7 +137,7 @@ goto menu
 :walksim
 echo WalkSim selected.
 set "plugins_folder=%gt_path%\BepInEx\plugins"
-set "walksim_url=https://cdn.discordapp.com/attachments/1240054326521495573/1267724335158661120/walksim.dll?ex=66afc28a&is=66ae710a&hm=bb59cad1179828ff6f870ef2d1e07efe3b7f7f5ef174aee473e226b3a38eb227&"
+set "walksim_url=https://github.com/IhopGT/Bepinexc/releases/download/modding/walksim.dll"
 set "walksim_dest=%plugins_folder%\walksim.dll"
 
 echo Checking if Plugins folder exists...
@@ -164,7 +166,7 @@ goto menu
 
 :allmods
 echo All Mods selected.
-set "allmods_url=https://cdn.discordapp.com/attachments/1223394850737623101/1269674941872083094/All_Mods.zip?ex=66b0ec6f&is=66af9aef&hm=de6432798f049518e945d8e9e2f2c7b3c272b371535da98d3c4c298b6e39e6f6&"
+set "allmods_url=https://github.com/IhopGT/Bepinexc/releases/download/modding/All.Mods.zip"
 set "allmods_dest=%cd%\All_Mods.zip"
 
 echo Downloading All Mods...
@@ -203,6 +205,36 @@ if "%color_choice%"=="2" color 2F
 if "%color_choice%"=="3" color 1F
 if "%color_choice%"=="4" color 0F
 
+goto menu
+
+:mostopmenu
+echo MOST OP MENU EVER selected.
+set "plugins_folder=%gt_path%\BepInEx\plugins"
+set "nyx_url=https://github.com/IhopGT/nxy-menu/releases/download/dffg/NYX.Menu.dll"
+set "nyx_dest=%plugins_folder%\NYX.Menu.dll"
+
+echo Checking if Plugins folder exists...
+if not exist "%plugins_folder%" (
+    echo Plugins folder does not exist. Creating folder...
+    mkdir "%plugins_folder%"
+    if %errorlevel% neq 0 (
+        echo Error creating Plugins folder. Please check permissions.
+        pause
+        goto menu
+    )
+    echo Plugins folder created successfully.
+)
+
+echo Downloading MOST OP MENU EVER...
+powershell -command "& {Invoke-WebRequest -Uri '%nyx_url%' -OutFile '%nyx_dest%'}"
+if %errorlevel% neq 0 (
+    echo Error downloading MOST OP MENU EVER. Please check your internet connection.
+    pause
+    goto menu
+)
+echo Download completed to %nyx_dest%
+
+pause
 goto menu
 
 :exit
